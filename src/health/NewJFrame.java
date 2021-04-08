@@ -27,11 +27,12 @@ public class NewJFrame extends javax.swing.JFrame {
    * Creates new form NewJFrame
    */
   public NewJFrame() {
+
     initComponents();
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:C:\\Users\\Andrea\\Documents\\NetBeansProjects\\health.sqlite");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {
