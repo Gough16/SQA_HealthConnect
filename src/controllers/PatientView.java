@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package health;
+package controllers;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -37,7 +37,7 @@ public final class PatientView extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:C:\\Users\\Andrea\\Documents\\NetBeansProjects\\health.sqlite");
+          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/SQA_HealthConnect.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package health;
+package controllers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +28,7 @@ public class Health {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:C:\\Users\\Andrea\\Documents\\NetBeansProjects\\health.sqlite");
+          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/SQA_HealthConnect.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
       ResultSet hc = statement.executeQuery("select * from Patient");

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package health;
+package controllers;
 
 import java.awt.Toolkit;
 import java.awt.*;
@@ -31,7 +31,7 @@ public class NewJFrame extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:C:\\Users\\Andrea\\Documents\\NetBeansProjects\\health.sqlite");
+          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/SQA_HealthConnect.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {
@@ -186,72 +186,99 @@ public class NewJFrame extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void LoginAsPatientActionPerformed(java.awt.event.ActionEvent evt) {
+  public void LoginAsPatientActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
+    String patient_Username = txt_username.getText();
+    String patient_Password = txt_password.getText();
+
+    patientLogin(patient_Username, patient_Password);
+
+  }
+
+  public void patientLogin(String patient_Username, String patient_Password){
     String sql = "select * from Patient where username=? and password=?";
-    try {
-      pst = conn.prepareStatement(sql);
-      pst.setString(1, txt_username.getText());
-      pst.setString(2, txt_password.getText());
-      username = txt_username.getText();
-      setUsername(username);
-      //JOptionPane.showMessageDialog (null, "Username = " + username);
-      rs = pst.executeQuery();
-
-      if (rs.next()) {
-        //JOptionPane.showMessageDialog(null, "Username and Password is correct");
-        Profile s = new Profile(username);
-        s.setVisible(true);
-        dispose();
-      } else {
-        JOptionPane.showMessageDialog(null, "Incorrect username or password.  Please try again.");
-
-      }
-    } catch (HeadlessException | SQLException e) {
-      JOptionPane.showMessageDialog(null, e);
-    } finally {
+    if(patient_Username.isEmpty() || patient_Password.isEmpty()){
+      JOptionPane.showMessageDialog(this,"Please add a valid Username and password");
+      throw new IllegalArgumentException();
+    } else {
       try {
-        rs.close();
-        pst.close();
-      } catch (SQLException e) {
+        pst = conn.prepareStatement(sql);
+        pst.setString(1, txt_username.getText());
+        pst.setString(2, txt_password.getText());
+        username = txt_username.getText();
+        setUsername(username);
+        //JOptionPane.showMessageDialog (null, "Username = " + username);
+        rs = pst.executeQuery();
+
+        if (rs.next()) {
+          //JOptionPane.showMessageDialog(null, "Username and Password is correct");
+          Profile s = new Profile(username);
+          s.setVisible(true);
+          dispose();
+        } else {
+          JOptionPane.showMessageDialog(null, "Incorrect username or password.  Please try again.");
+
+        }
+      } catch (HeadlessException | SQLException e) {
         JOptionPane.showMessageDialog(null, e);
+      } finally {
+        try {
+          rs.close();
+          pst.close();
+        } catch (SQLException e) {
+          JOptionPane.showMessageDialog(null, e);
+        }
       }
     }
+
+  }
+
+  public void LoginAsDoctorActionPerformed(java.awt.event.ActionEvent evt) {
+    // TODO add your handling code here:
+    String doc_Username = txt_username.getText();
+    String doc_Password = txt_password.getText();
+
+    doctorLogin(doc_Username, doc_Password);
 
 
   }
 
-  private void LoginAsDoctorActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO add your handling code here:
+  public void doctorLogin(String doc_username, String doc_password){
+
     String sql = "select * from Doctor where username=? and password=?";
-    try {
-      pst = conn.prepareStatement(sql);
-      pst.setString(1, txt_username.getText());
-      pst.setString(2, txt_password.getText());
-      username = txt_username.getText();
-      setUsername(username);
-
-      rs = pst.executeQuery();
-      if (rs.next()) {
-        //JOptionPane.showMessageDialog(null, "Username and Password is correct");
-        DoctorView d = new DoctorView(username);
-        d.setVisible(true);
-        dispose();
-      } else {
-        JOptionPane.showMessageDialog(null, "Incorrect username or password.  Please try again.");
-
-      }
-    } catch (HeadlessException | SQLException e) {
-      JOptionPane.showMessageDialog(null, e);
-    } finally {
+    if(doc_username.isEmpty() || doc_password.isEmpty()){
+      JOptionPane.showMessageDialog(this,"Username or Password incomplete");
+      throw new IllegalArgumentException();
+    } else {
       try {
-        rs.close();
-        pst.close();
-      } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-      }
-    }
+        pst = conn.prepareStatement(sql);
+        pst.setString(1, txt_username.getText());
+        pst.setString(2, txt_password.getText());
+        username = txt_username.getText();
+        setUsername(username);
 
+        rs = pst.executeQuery();
+        if (rs.next()) {
+          //JOptionPane.showMessageDialog(null, "Username and Password is correct");
+          DoctorView d = new DoctorView(username);
+          d.setVisible(true);
+          dispose();
+        } else {
+          JOptionPane.showMessageDialog(null, "Incorrect username or password.  Please try again.");
+
+        }
+      } catch (HeadlessException | SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+      } finally {
+        try {
+          rs.close();
+          pst.close();
+        } catch (SQLException e) {
+          JOptionPane.showMessageDialog(null, e);
+        }
+      }
+
+    }
 
   }
 
