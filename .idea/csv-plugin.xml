@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/test/java/health/LoginUnitTest.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
