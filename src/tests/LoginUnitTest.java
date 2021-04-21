@@ -1,6 +1,5 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import controllers.NewJFrame;
 import java.sql.Connection;
@@ -18,7 +17,10 @@ import org.junit.jupiter.api.Test;
 
 public class LoginUnitTest {
 
-  public NewJFrame login;
+  /*
+  * Field attributed for username and password strings.
+   */
+  private NewJFrame login;
   private String doc_Username;
   private String doc_Password;
   private String patient_Username;
@@ -58,6 +60,7 @@ public class LoginUnitTest {
   public void doctorEmptyUsername() throws Exception{
     doc_Username = "";
     doc_Password = "12345";
+
     Connection con = null;
     Assertions.assertThrows(IllegalArgumentException.class, () ->{login.doctorLogin(doc_Username, doc_Password);});
   }
