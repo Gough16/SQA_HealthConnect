@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package controllers;
+package health;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -38,7 +38,7 @@ public class NewRequests extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/SQA_HealthConnect.db");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
       String sql = "select RID from Request";
