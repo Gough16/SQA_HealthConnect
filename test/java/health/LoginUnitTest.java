@@ -19,7 +19,7 @@ public class LoginUnitTest {
     /*
      * Field attributed for username and password strings.
      */
-    private NewJFrame login;
+    private controllers.NewJFrame login;
     private String doc_Username;
     private String doc_Password;
     private String patient_Username;

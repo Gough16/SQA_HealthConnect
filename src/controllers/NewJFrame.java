@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package health;
+package controllers;
 
 import java.awt.Toolkit;
 import java.awt.*;
@@ -187,8 +187,17 @@ public class NewJFrame extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void LoginAsPatientActionPerformed(java.awt.event.ActionEvent evt) {
+  public void LoginAsPatientActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
+    String patient_Username = txt_username.getText();
+    String patient_Password = txt_password.getText();
+
+    patientLogin(patient_Username, patient_Password);
+
+  }
+
+  public void patientLogin(String patient_Username, String patient_Password){
+
     String sql = "select * from Patient where username=? and password=?";
     try {
       pst = conn.prepareStatement(sql);
@@ -219,11 +228,18 @@ public class NewJFrame extends javax.swing.JFrame {
       }
     }
 
+  }
+
+  public void LoginAsDoctorActionPerformed(java.awt.event.ActionEvent evt) {
+    // TODO add your handling code here:
+    String doc_Username = txt_username.getText();
+    String doc_Password = txt_password.getText();
+
+    doctorLogin(doc_Username, doc_Password);
 
   }
 
-  private void LoginAsDoctorActionPerformed(java.awt.event.ActionEvent evt) {
-    // TODO add your handling code here:
+  public void doctorLogin(String doc_Username, String doc_Password){
     String sql = "select * from Doctor where username=? and password=?";
     try {
       pst = conn.prepareStatement(sql);
@@ -252,7 +268,6 @@ public class NewJFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, e);
       }
     }
-
 
   }
 

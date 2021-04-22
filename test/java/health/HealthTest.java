@@ -1,5 +1,6 @@
 package health;
 
+import controllers.Health;
 import org.junit.Test;
 
 import javax.swing.*;
