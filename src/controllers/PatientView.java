@@ -37,7 +37,7 @@ public final class PatientView extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
+          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {
