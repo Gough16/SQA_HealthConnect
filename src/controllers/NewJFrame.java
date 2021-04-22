@@ -10,7 +10,7 @@ import java.awt.Toolkit;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.sql.*;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -51,6 +51,14 @@ public class NewJFrame extends javax.swing.JFrame {
 
   public void setUsername(String username) {
     this.username = this.txt_username.getText();
+  }
+
+  public JPasswordField getTxt_password() {
+    return txt_password;
+  }
+
+  public void setTxt_password(JPasswordField txt_password) {
+    this.txt_password = txt_password;
   }
 
   /**

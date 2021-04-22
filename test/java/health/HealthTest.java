@@ -1,23 +1,25 @@
 package health;
 
 import controllers.Health;
-import org.junit.Test;
-
-import javax.swing.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 public class HealthTest {
 
-	private JFrame frame = new JFrame();
-	private Health healthTester = new Health();
+	private Health healthTester;
 
-
+	/**
+	 * Test Case Id: UnitTest-HealthTest-001
+	 * Runs the main method of Health and checks if any exception was thrown.
+	 * Health collects data from the database and displays it in the console.
+	 * If an exception were thrown it would catch it.
+	 */
 	@Test
 	public void runMain() {
 
-		System.out.println("Test");
+		healthTester = new Health();
+		Assertions.assertDoesNotThrow(() -> healthTester.main(null));
 	}
-
-
 
 }

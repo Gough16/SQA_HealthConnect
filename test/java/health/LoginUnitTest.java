@@ -45,6 +45,7 @@ public class LoginUnitTest {
         //Make sure that the inputed username and password meet regex requirements
         Assertions.assertTrue(doc_Password.matches("^[a-zA-Z0-9]*$"));
         Assertions.assertTrue(doc_Password.matches("^[a-zA-Z0-9]*$"));
+
     }
 
     /**

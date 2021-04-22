@@ -254,7 +254,7 @@ public final class DoctorView extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void newRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void newRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     viewedRequests.setText("New Requests");
     requestsList.setVisible(true);
@@ -294,7 +294,7 @@ public final class DoctorView extends javax.swing.JFrame {
     }
   }
 
-  private void inProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void inProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     viewedRequests.setText("In Progress Requests");
     requestsList.setVisible(true);
@@ -335,7 +335,7 @@ public final class DoctorView extends javax.swing.JFrame {
     }
   }
 
-  private void openSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void openSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     if (requestsList.getSelectedIndex() != -1) {
       String temp_requestID = requestsList.getSelectedValue().toString();
