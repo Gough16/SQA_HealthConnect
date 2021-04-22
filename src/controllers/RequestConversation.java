@@ -42,7 +42,7 @@ public class RequestConversation extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {
@@ -236,7 +236,7 @@ public class RequestConversation extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     int pane = JOptionPane
         .showConfirmDialog(null, "Are you sure you want to add your message to the request?",
@@ -289,7 +289,7 @@ public class RequestConversation extends javax.swing.JFrame {
 
   }
 
-  private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     int pane = JOptionPane
         .showConfirmDialog(null, "Are you sure you want to close the request?", "Close Request",
@@ -327,7 +327,7 @@ public class RequestConversation extends javax.swing.JFrame {
     }
   }
 
-  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     try {
       rs.close();

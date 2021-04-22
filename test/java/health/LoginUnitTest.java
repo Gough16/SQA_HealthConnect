@@ -39,12 +39,17 @@ public class LoginUnitTest {
      */
     @Test
     public void doctorValidLogin(){
-        doc_Username = "mgough";
-        doc_Password = "12345";
+        doc_Username = "test";
+        doc_Password = "test1234";
 
         //Make sure that the inputed username and password meet regex requirements
         Assertions.assertTrue(doc_Password.matches("^[a-zA-Z0-9]*$"));
         Assertions.assertTrue(doc_Password.matches("^[a-zA-Z0-9]*$"));
+
+        login.setDoc_Username(doc_Username);
+        login.setDoc_Password(doc_Password);
+
+        Assertions.assertDoesNotThrow(() -> login.LoginAsDoctorActionPerformed(null));
 
     }
 
@@ -90,12 +95,17 @@ public class LoginUnitTest {
      */
     @Test
     public void patientValidLogin(){
-        patient_Username = "Bgough";
-        patient_Password = "12345";
+        patient_Username = "test";
+        patient_Password = "test1234";
 
         //Make sure that the inputed username and password meet regex requirements
         Assertions.assertTrue(patient_Username.matches("^[a-zA-Z0-9]*$"));
         Assertions.assertTrue(patient_Password.matches("^[a-zA-Z0-9]*$"));
+
+        login.setPatient_Password(patient_Password);
+        login.setPatient_Username(patient_Username);
+
+        Assertions.assertDoesNotThrow(() -> login.LoginAsPatientActionPerformed(null));
     }
 
     /**

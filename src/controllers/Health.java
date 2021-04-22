@@ -29,7 +29,7 @@ public class Health {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
       ResultSet hc = statement.executeQuery("select * from Patient");

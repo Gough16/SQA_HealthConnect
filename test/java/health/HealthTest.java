@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
+/**
+ * Test class for running the Health source class
+ * Created By: Alan Norman
+ */
 public class HealthTest {
 
 	private Health healthTester;

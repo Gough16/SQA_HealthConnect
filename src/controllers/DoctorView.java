@@ -37,7 +37,7 @@ public final class DoctorView extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-              "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
+              "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
 //      conn = DriverManager.getConnection(
 //          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
@@ -358,7 +358,7 @@ public final class DoctorView extends javax.swing.JFrame {
     }
   }
 
-  private void closeRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void closeRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     viewedRequests.setText("Closed Requests");
     requestsList.setVisible(true);
@@ -399,7 +399,7 @@ public final class DoctorView extends javax.swing.JFrame {
     }
   }
 
-  private void requestsListValueChanged(javax.swing.event.ListSelectionEvent evt) {
+  public void requestsListValueChanged(javax.swing.event.ListSelectionEvent evt) {
     // TODO add your handling code here:
     if (requestsList.getSelectedIndex() == -1) {
       //Nothing was selected.  Do nothing
@@ -408,7 +408,7 @@ public final class DoctorView extends javax.swing.JFrame {
     }
   }
 
-  private void logoutActionPerformed(java.awt.event.ActionEvent evt) {
+  public void logoutActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
 
     try {

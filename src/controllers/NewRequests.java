@@ -38,7 +38,7 @@ public class NewRequests extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
       String sql = "select RID from Request";
@@ -183,7 +183,7 @@ public class NewRequests extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void createButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     int pane = JOptionPane
         .showConfirmDialog(null, "Are you sure you want to create the request?", "Create Request",
@@ -230,7 +230,7 @@ public class NewRequests extends javax.swing.JFrame {
     }
   }
 
-  private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     Profile p = new Profile(userID);
     p.setVisible(true);

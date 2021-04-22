@@ -37,7 +37,7 @@ public final class PatientView extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {
@@ -220,7 +220,7 @@ public final class PatientView extends javax.swing.JFrame {
     pack();
   }// </editor-fold>
 
-  private void InProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void InProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     jLabel1.setText("Your Opened Requests");
     jList1.setVisible(true);
@@ -259,7 +259,7 @@ public final class PatientView extends javax.swing.JFrame {
     }
   }
 
-  private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void newButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     jLabel1.setText("Your New Requests");
     jList1.setVisible(true);
@@ -298,7 +298,7 @@ public final class PatientView extends javax.swing.JFrame {
     }
   }
 
-  private void closedButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void closedButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     jLabel1.setText("Your Closed Requests");
     jList1.setVisible(true);
@@ -337,14 +337,14 @@ public final class PatientView extends javax.swing.JFrame {
     }
   }
 
-  private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
+  public void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     dispose();
     Profile p = new Profile(username);
     p.setVisible(true);
   }
 
-  private void openRequestActionPerformed(java.awt.event.ActionEvent evt) {
+  public void openRequestActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
     if (jList1.getSelectedIndex() != -1) {
       String temp_requestID = jList1.getSelectedValue().toString();

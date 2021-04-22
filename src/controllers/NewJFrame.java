@@ -17,6 +17,10 @@ import java.sql.ResultSet;
 
 public class NewJFrame extends javax.swing.JFrame {
 
+  String patient_Username;
+  String patient_Password;
+  String doc_Username;
+  String doc_Password;
   Connection conn = null;
   ResultSet rs = null;
   PreparedStatement pst = null;
@@ -32,7 +36,7 @@ public class NewJFrame extends javax.swing.JFrame {
     try {
       Class.forName("org.sqlite.JDBC");
       conn = DriverManager.getConnection(
-          "jdbc:sqlite:/Users/michaelgough/OneDrive - Florida Gulf Coast University/SoftwareQualityAssurance/HealthConnectDB.db");
+          "jdbc:sqlite:D:\\sqlite\\db\\healthConnectDB.db");
       //JOptionPane.showMessageDialog (null, "Connected");
       Statement statement = conn.createStatement();
     } catch (ClassNotFoundException | SQLException e) {
@@ -44,6 +48,21 @@ public class NewJFrame extends javax.swing.JFrame {
         size.height / 2 - getHeight() / 2);
   }
 
+  public void setPatient_Username(String patient_Username) {
+    this.patient_Username = patient_Username;
+  }
+
+  public void setPatient_Password(String patient_Password) {
+    this.patient_Password = patient_Password;
+  }
+
+  public void setDoc_Username(String doc_Username) {
+    this.doc_Username = doc_Username;
+  }
+
+  public void setDoc_Password(String doc_Password) {
+    this.doc_Password = doc_Password;
+  }
 
   public String getUsername() {
     return this.username;
@@ -197,8 +216,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
   public void LoginAsPatientActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
-    String patient_Username = txt_username.getText();
-    String patient_Password = txt_password.getText();
+    if(patient_Username == null && patient_Password == null) {
+      patient_Username = txt_username.getText();
+      patient_Password = txt_password.getText();
+    }
 
     patientLogin(patient_Username, patient_Password);
 
@@ -246,8 +267,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
   public void LoginAsDoctorActionPerformed(java.awt.event.ActionEvent evt) {
     // TODO add your handling code here:
-    String doc_Username = txt_username.getText();
-    String doc_Password = txt_password.getText();
+   if(doc_Username == null && doc_Password == null) {
+     doc_Username = txt_username.getText();
+     doc_Password = txt_password.getText();
+   }
 
     doctorLogin(doc_Username, doc_Password);
 
